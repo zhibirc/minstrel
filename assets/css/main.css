@@ -5,6 +5,10 @@
 \* ----------------- */
 
 
+html, body {
+	height: 100%;
+}
+
 .__no-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -31,11 +35,7 @@ header {
     font-weight: 400;
 	line-height: 80px;
     min-height: 80px;
-	position: fixed;
-    text-align: center;
-	top: 0;
     width: 100%;
-	z-index: 10;
 }
 
 
@@ -47,10 +47,13 @@ header {
 		
 \* ----------------- */
 
+
 .app-cnt {
-	margin-top: 80px;
-	background: red;
+	height: calc(100% - 120px);
 }
+
+
+
 
 
 /* ----------------- *\
@@ -61,18 +64,17 @@ header {
 
 
 section {
+	height: 100%;
 	width: calc(50% - 1px);
 }
 
 .src-cnt {
-	border-right: 2px ridge red;
+	border-right: 2px ridge #ababab;
 	float: left;
-	background: #a2a2a2;
 }
 
 .dst-cnt {
 	float: right;
-	background: #c2c2c2;
 }
 
 
@@ -95,6 +97,7 @@ textarea {
 
 
 
+
 /* ----------------- *\
 
 		FOOTER
@@ -104,13 +107,11 @@ textarea {
 
 footer {
 	background: #343C45;
-	bottom: 0;
 	color: #87DD95;
 	font-size: .8rem;
 	font-weight: 400;
 	height: 40px;
 	line-height: 40px;
-	position: fixed;
 	text-align: center;
 	width: 100%;
 }
