@@ -1,0 +1,121 @@
+/* ----------------- *\
+
+		COMMON
+		
+\* ----------------- */
+
+
+.__no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+
+
+/* ----------------- *\
+
+		HEADER
+		
+\* ----------------- */
+
+
+header {
+    background: #2E8B57;
+	font-size: 1.2rem;
+    font-weight: 400;
+	line-height: 80px;
+    min-height: 80px;
+	position: fixed;
+    text-align: center;
+	top: 0;
+    width: 100%;
+	z-index: 10;
+}
+
+
+
+
+/* ----------------- *\
+
+		WRAPPER
+		
+\* ----------------- */
+
+.app-cnt {
+	margin-top: 80px;
+	background: red;
+}
+
+
+/* ----------------- *\
+
+	    SECTIONS
+		
+\* ----------------- */
+
+
+section {
+	width: calc(50% - 1px);
+}
+
+.src-cnt {
+	border-right: 2px ridge red;
+	float: left;
+	background: #a2a2a2;
+}
+
+.dst-cnt {
+	float: right;
+	background: #c2c2c2;
+}
+
+
+
+
+
+/* ----------------- *\
+
+	    TEXTAREA
+		
+\* ----------------- */
+
+
+textarea {
+	height: 100%;
+	resize: none;
+	width: 100%;
+}
+
+
+
+
+/* ----------------- *\
+
+		FOOTER
+		
+\* ----------------- */
+
+
+footer {
+	background: #343C45;
+	bottom: 0;
+	color: #87DD95;
+	font-size: .8rem;
+	font-weight: 400;
+	height: 40px;
+	line-height: 40px;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+}
+
+footer a {
+	color: #87DD95;
+	text-decoration: none;
+}
