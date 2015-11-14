@@ -1,12 +1,17 @@
 /** CONFIG */
 requirejs.config({
-	baseUrl: 'assets/js/modules',
+	baseUrl: 'assets/js',
 	paths: {
-		typography: 'typography'
+		appView: 'Views/AppView',
+		appController: 'Controllers/AppController',
+		appModel: 'Models/Database',
+		typography: 'Controllers/modules/typography'
 	}
 });
 
 /** INITIAL */
-require(['typography'], function () {
+require(['appModel', 'appController'], function (databaseAPI, _controller) {
+	'use strict';
 	
+	var db = new databaseAPI;
 });
