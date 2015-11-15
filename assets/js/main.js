@@ -10,7 +10,7 @@ requirejs.config({
 });
 
 /** INITIAL */
-require(['appModel', 'appController'], function (databaseAPI, _controller) {
+require(['appView', 'appController', 'appModel'], function (_view, _controller, databaseAPI) {
 	'use strict';
 	
 	var db = new databaseAPI;
