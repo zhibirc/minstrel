@@ -31,12 +31,19 @@ html, body {
 
 
 nav {
-    background: #2F4F4F; /* #567172 */ /* #91BFDB */ /* #4575B4 */
-	font-size: 1.2rem;
+    background: #2F4F4F;
+	color: #87DD95;
+	font-size: 4rem;
     font-weight: 400;
 	line-height: 80px;
     min-height: 80px;
+	text-align: center;
     width: 100%;
+}
+
+nav i:hover {
+	color: #82C88D;
+	cursor: default;
 }
 
 #sidebar_switcher {
@@ -73,7 +80,7 @@ section {
 }
 
 .src-cnt {
-	border-right: 2px ridge #ACB8B4; /* #ababab */
+	border-right: 2px ridge #ACB8B4;
 	float: left;
 }
 
@@ -117,7 +124,7 @@ textarea:focus {
 
 
 footer {
-	background: #2F4F4F; /* #42545A; */ /* #39647E */ /* #1C5F83 */
+	background: #2F4F4F;
 	color: #87DD95;
 	font-size: .8rem;
 	font-weight: 400;

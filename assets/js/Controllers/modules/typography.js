@@ -21,4 +21,22 @@ define(function () {
 	};
 	
 	Object.freeze(TYPO_PATTERNS);
+	
+	let propVal;
+	
+	function fixText(txt) {
+		Object.keys(TYPO_PATTERNS).forEach(key => {
+			propVal = TYPO_PATTERNS[key];
+			txt = txt.replace(propVal[0], propVal[1]);
+		});
+		
+		return txt;
+	}
+	
+	/**
+	 *	@exports
+	 */
+	 return {
+		 fixText: fixText
+	 };
 });
