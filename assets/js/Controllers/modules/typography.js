@@ -10,7 +10,7 @@ define(function () {
 			fixMore3Dots: [/(\.){4,}/g, '$1$1$1'], // replace sequence of more than three dots with three ones
 			fixWhspsInMarks: [/(\?|!) (?=\?|!)/g, '$1'], // remove whitespaces between question and exclamation marks
 			fixMore3Marks: [/[!?]{4,}/g, s => s.slice(0, 3)], // replace three or more question or exclamation marks with three ones
-			fixHyphenDash: [/\s-(\s)/g, '\u00A0\u2014$2'], // replace hyphen with a dash with non-breaking space before
+			fixHyphenDash: [/\s-(\s)/g, '\u00A0\u2014$1'], // replace hyphen with a dash with non-breaking space before
 			fixLeftQuotes: [/(^|\s)"/g, (s, $1) => $1 + (is_eng ? '“' : '«')], // replace left-side double quotes
 			fixRightQuotes: [/"(\s|[-.,:;?!]|$)/g, (s, $1) => $1 + (is_eng ? '”' : '»')], // replace right-side double quotes
 			fixWhspsAfterMarks0: [/([,:;])(?=[^ ])/gi, '$1 '], // adding single whitespace after comma, colon and semicolon
