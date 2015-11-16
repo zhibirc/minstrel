@@ -5,7 +5,11 @@ requirejs.config({
 		appView: 'Views/AppView',
 		appController: 'Controllers/AppController',
 		appModel: 'Models/Database',
-		typography: 'Controllers/modules/typography'
+		typography: 'Controllers/modules/typography',
+		uglifyjs: 'Controllers/modules/uglifyjs'
+	},
+	shim: {
+		uglifyjs: { exports: 'UglifyJS' }
 	}
 });
 
