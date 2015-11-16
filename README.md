@@ -1,2 +1,0 @@
-# zEdit
-Web Editor
