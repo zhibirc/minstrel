@@ -6,13 +6,13 @@ define(function () {
 	
 	var TYPO_PATTERNS = {
 			fixManyWhsps: [/[ \t]+/g, ' '], // replace unnecessary whitespace sequences with one whitespace
-			fixWhspsInDots: [/\.\s\.\s\./g, '...'], // remove whitespaces between dots
-			fixMore3Dots: [/(\.){4,}/g, '$1$1$1'], // replace sequence of more than three dots with three ones
+			fixWhspsInDots: [/\.\s\.\s\.|(\.){4,}/g, '...'], // remove whitespaces between dots or replace more than three dots with three ones
 			fixWhspsInMarks: [/(\?|!) (?=\?|!)/g, '$1'], // remove whitespaces between question and exclamation marks
 			fixMore3Marks: [/[!?]{4,}/g, s => s.slice(0, 3)], // replace three or more question or exclamation marks with three ones
-			fixHyphenDash: [/\s-(\s)/g, '\u00A0\u2014$1'], // replace hyphen with a dash with non-breaking space before
+			fixHyphenDash0: [/\s-(\s)/g, '\u00A0\u2014$1'], // replace hyphen with a dash with non-breaking space before
+			fixHyphenDash1: [/^-(\s)/gm, '\u2014$1'], // replace hyphen with a dash at the beginning of each line
 			fixLeftQuotes: [/(^|\s)"/g, (s, $1) => $1 + (is_eng ? '“' : '«')], // replace left-side double quotes
-			fixRightQuotes: [/"(\s|[-.,:;?!]|$)/g, (s, $1) => $1 + (is_eng ? '”' : '»')], // replace right-side double quotes
+			fixRightQuotes: [/"(\s|[-.,:;?!]|$)/g, (s, $1) => (is_eng ? '”' : '»') + $1], // replace right-side double quotes
 			fixWhspsAfterMarks0: [/([,:;])(?=[^ ])/gi, '$1 '], // adding single whitespace after comma, colon and semicolon
 			fixThinWhsps: [/( [a-zа-яё]\.)\s?([a-zа-яё]\.)/gi, (s, $1, $2) => $1 + '\u2009' + $2], // adding a thin whitespaces in initials and reductions
 			fixWhspsBeforeSentences: [/(\.)(?=[a-zа-яё][^.])/gi, '$1 '], // adding whitespace before each sentence in the given text
