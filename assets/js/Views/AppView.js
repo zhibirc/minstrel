@@ -1,4 +1,4 @@
-define(['appController'], function (_controller) {
+define(['appController'], function (Controller) {
 	'use strict';
 	
 	var doc = document,
@@ -7,6 +7,6 @@ define(['appController'], function (_controller) {
 	navBar.addEventListener('click', function (evt) {
 		evt.stopPropagation();
 		
-		_controller.getEvent(evt);
+		Controller.getEvent(evt);
 	}, false);
 });
