@@ -76,6 +76,7 @@ nav i:hover {
 
 section {
 	height: 100%;
+	position: relative;
 	width: calc(50% - 1px);
 }
 
@@ -86,6 +87,10 @@ section {
 
 .dst-cnt {
 	float: right;
+}
+
+section i {
+	position: absolute;
 }
 
 

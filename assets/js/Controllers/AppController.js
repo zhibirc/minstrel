@@ -5,7 +5,13 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 		src = doc.getElementById('src_input'),
 		dst = doc.getElementById('dst_output'),
 		ast, compressor;
-		
+	
+	var speller = new Speller({ url: 'speller', lang: 'ru', options: Speller.IGNORE_URLS });
+	
+	function spellCheck() {
+		speller.check([src]);
+	}
+	
 	function getEvent(evt) {
 		var target = evt.target;
 		
@@ -25,6 +31,12 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 			ast.mangle_names();
 			
 			dst.value = ast.print_to_string();
+			break;
+		case 'btn_speller':
+			spellCheck();
+			break;
+		case 'btn_speller_settings':
+			speller.optionsDialog();
 			break;
 		}
 	}

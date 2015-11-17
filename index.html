@@ -12,6 +12,7 @@
 	
 	<link rel="shortcut icon" href="favicon.ico">
 	
+	<!-- TODO: fix single quotes -->
 	<link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
 	
 	<link rel="stylesheet" href="assets/css/normalize.css">
@@ -22,21 +23,26 @@
 <body>
 <nav id="main_toolbar">
 	<i class="fa fa-pencil-square-o" id="btn_typography" title="Оттипографить"></i>
+	<i class="fa fa-font" id="btn_speller" title="Проверить орфографию"></i>
+	<i class="fa fa-cog" id="btn_speller_settings" title="Настроить проверку орфографии"></i>
 	<i class="fa fa-code" id="btn_uglifyjs" title="Минифицировать JS"></i>
 </nav>
 
 <div class="app-cnt u-full-width">
 	<section class="src-cnt">
-		<textarea id="src_input"></textarea>
+		<textarea id="src_input" autofocus></textarea>
+		<i class="fa fa-trash-o" id="src_trash"></i>
 	</section>
 
 	<section class="dst-cnt">
 		<textarea id="dst_output"></textarea>
+		<i class="fa fa-trash-o" id="dst_trash"></i>
 	</section>
 </div>
 
 <footer></footer>
 
+<script src="speller/spell.js"></script>
 <script data-main="assets/js/main" src="assets/js/require.js"></script>
 </body>
 </html>
