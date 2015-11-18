@@ -19,6 +19,10 @@ html, body {
     user-select: none;
 }
 
+.__hidden {
+	display: none;
+}
+
 
 
 
@@ -90,7 +94,16 @@ section {
 }
 
 section i {
+	color: #808080;
+	font-size: 2rem !important;
 	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+section i:hover {
+	color: #222;
+	cursor: pointer;
 }
 
 
@@ -109,6 +122,7 @@ textarea {
 	border: 0;
 	border-radius: 0;
 	height: 100%;
+	padding-right: 15px;
 	resize: none;
 	width: 100%;
 }
