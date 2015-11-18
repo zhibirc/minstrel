@@ -41,6 +41,7 @@ nav {
     font-weight: 400;
 	line-height: 80px;
     min-height: 80px;
+	position: relative;
 	text-align: center;
     width: 100%;
 }
@@ -50,9 +51,13 @@ nav i:hover {
 	cursor: default;
 }
 
-#sidebar_switcher {
-
+#btn_info {
+	line-height: inherit !important;
+	position: absolute;
+	right: 1rem;
 }
+
+
 
 
 
