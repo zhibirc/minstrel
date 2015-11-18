@@ -176,7 +176,6 @@ footer a {
 
 .pp-overlay {
 	background: rgba(0, 0, 0, .6);
-	display: none;
 	height: 100%;
 	left: 0;
 	position: fixed;
@@ -189,7 +188,6 @@ footer a {
 	background: #C0C0C0;
 	border: 2px solid #fff;
 	box-sizing: border-box;
-	display: none;
 	left: 50%;
 	margin-left: -250px;
 	padding: 20px;

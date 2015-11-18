@@ -7,6 +7,8 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 		srcTrash = doc.getElementById('src_trash'),
 		dstTrash = doc.getElementById('dst_trash'),
 		app = doc.getElementById('app_cnt'),
+		overlay = doc.querySelector('.pp-overlay'),
+		popup = doc.querySelector('.pp-info'),
 		ast, compressor;
 	
 	var speller = new Speller({ url: 'speller', lang: 'ru', options: Speller.IGNORE_URLS });
@@ -60,6 +62,10 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 			dst.value = '';
 			toggleTrashIcon('dst');
 			dst.focus();
+			break;
+		case 'btn_info':
+			overlay.classList.remove('__hidden');
+			popup.classList.remove('__hidden');
 			break;
 		}
 	}
