@@ -162,3 +162,39 @@ footer a {
 	color: #87DD95;
 	text-decoration: none;
 }
+
+
+
+
+
+/* ----------------- *\
+
+		POPUP
+		
+\* ----------------- */
+
+
+.pp-overlay {
+	background: rgba(0, 0, 0, .6);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+.pp-info {
+	background: #C0C0C0;
+	border: 2px solid #fff;
+	box-sizing: border-box;
+	display: none;
+	left: 50%;
+	margin-left: -250px;
+	padding: 20px;
+	width: 500px;
+	position: fixed;
+	top: 120px;
+	z-index: 1001;
+}
