@@ -1,21 +1,22 @@
 define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 	'use strict';
 	
-	var doc = document,
-		src = doc.getElementById('src_input'),
-		dst = doc.getElementById('dst_output'),
-		srcTrash = doc.getElementById('src_trash'),
-		dstTrash = doc.getElementById('dst_trash'),
-		app = doc.getElementById('app_cnt'),
-		overlay = doc.querySelector('.pp-overlay'),
-		popup = doc.querySelector('.pp-info'),
-		ast, compressor;
+	var ast, compressor;
+	
+	var NODES;
 	
 	var speller = new Speller({ url: 'speller', lang: 'ru', options: Speller.IGNORE_URLS });
 	
+	function getNodes(map) {
+		NODES = map;
+	}
+	
 	function toggleTrashIcon(txtTarget) {
-		txtTarget === 'src' ? (src.value ? srcTrash.classList.remove('__hidden') : srcTrash.classList.add('__hidden'))
-							: (dst.value ? dstTrash.classList.remove('__hidden') : dstTrash.classList.add('__hidden'));
+		var srcTrash = NODES.srcTrash,
+			dstTrash = NODES.dstTrash;
+			
+		txtTarget === 'src' ? (NODES.src.value ? srcTrash.classList.remove('__hidden') : srcTrash.classList.add('__hidden'))
+							: (NODES.dst.value ? dstTrash.classList.remove('__hidden') : dstTrash.classList.add('__hidden'));
 		
 	}
 	
@@ -74,6 +75,7 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 	 *	@exports
 	 */
 	 return {
+		 getNodes: getNodes,
 		 getEvent: getEvent
 	 };
 });
