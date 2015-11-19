@@ -1,4 +1,4 @@
-define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
+define(['typography', 'uglifyjs', 'search'], function (typography, UglifyJS, search) {
 	'use strict';
 	
 	var NODES;
@@ -23,7 +23,8 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 	function getEvent(evt) {
 		var target = evt.target,
 			src = NODES.src,
-			dst = NODES.dst;
+			dst = NODES.dst,
+			data;
 		
 		switch (target.id) {
 		case 'btn_typography':
@@ -69,6 +70,14 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 		case 'btn_info':
 			NODES.overlay.classList.remove('__hidden');
 			NODES.popup.classList.remove('__hidden');
+			break;
+		case 'search_input':
+		case 'btn_search':
+			data = NODES.searchBox.value;
+			if (!data) {
+				return;
+			}
+			search.getRequest(data);
 			break;
 		}
 	}

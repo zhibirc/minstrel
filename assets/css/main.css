@@ -10,15 +10,6 @@ html, body {
 	overflow: hidden;
 }
 
-.__no-select {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 .__hidden {
 	display: none;
 }
@@ -106,7 +97,7 @@ section i {
 	top: 0;
 }
 
-section i:hover {
+section i:hover, #btn_search:hover {
 	color: #222;
 	cursor: pointer;
 }
@@ -128,7 +119,7 @@ textarea {
 	border-radius: 0;
 	height: 100%;
 	padding-right: 15px;
-	resize: none;
+	resize: none !important;
 	width: 100%;
 }
 
@@ -149,29 +140,32 @@ textarea:focus {
 
 footer {
 	background: #2F4F4F;
-	font-weight: 400;
 	height: 50px;
 	line-height: 50px;
 	text-align: center;
 	width: 100%;
 }
 
-footer a {
-	color: #87DD95;
-	text-decoration: none;
+footer div {
+	display: inline-block;
+	position: relative;
+	width: 50%;
 }
 
 #search_input {
 	background: #F3EFE4;
 	border: 0 none;
 	border-radius: 0;
+	padding-right: 45px;
+	width: 100%;
 }
 
 #btn_search {
-	border: 0 none;
-	border-radius: 0;
-	color: #87DD95;
-	font-size: 2rem;
+	color: #808080;
+	font-size: 3rem !important;
+	position: absolute;
+	right: 8px;
+	top: 8px;
 }
 
 
