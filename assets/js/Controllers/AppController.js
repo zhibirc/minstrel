@@ -21,7 +21,9 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 	}
 	
 	function getEvent(evt) {
-		var target = evt.target;
+		var target = evt.target,
+			src = NODES.src,
+			dst = NODES.dst;
 		
 		switch (target.id) {
 		case 'btn_typography':
@@ -65,8 +67,8 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 			dst.focus();
 			break;
 		case 'btn_info':
-			overlay.classList.remove('__hidden');
-			popup.classList.remove('__hidden');
+			NODES.overlay.classList.remove('__hidden');
+			NODES.popup.classList.remove('__hidden');
 			break;
 		}
 	}
