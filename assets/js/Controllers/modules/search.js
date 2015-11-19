@@ -2,7 +2,25 @@ define(function () {
 	'use strict';
 	
 	function getRequest(data) {
-	// URL -> https://www.google.com.ua/search?q=encodeURIComponent(request)&tbm=isch
+		var xhr =  new XMLHttpRequest(),
+			baseUrl = 'https://www.google.com.ua/search?q=',
+			tailUrl = '&tbm=isch';
+		
+		xhr.open('GET', baseUrl + encodeURIComponent(data) + tailUrl, true);
+		
+		xhr.send();
+		
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState !== 4) {
+				return;
+			}
+			
+			if (xhr.status !== 200) {
+				console.log(xhr.status, ': ', xhr.statusText);
+			} else {
+				console.log(xhr.responseText);
+			}
+		};
 	}
 	
 	/**

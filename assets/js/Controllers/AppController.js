@@ -74,9 +74,11 @@ define(['typography', 'uglifyjs', 'search'], function (typography, UglifyJS, sea
 		case 'search_input':
 		case 'btn_search':
 			data = NODES.searchBox.value;
-			if (!data) {
+			
+			if (!data || evt.type === 'keydown' && evt.keyCode !== 13) {
 				return;
 			}
+			
 			search.getRequest(data);
 			break;
 		}
