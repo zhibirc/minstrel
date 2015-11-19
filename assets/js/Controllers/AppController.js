@@ -1,14 +1,14 @@
 define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 	'use strict';
 	
-	var ast, compressor;
-	
 	var NODES;
+	var ast, compressor;
 	
 	var speller = new Speller({ url: 'speller', lang: 'ru', options: Speller.IGNORE_URLS });
 	
 	function getNodes(map) {
 		NODES = map;
+		Object.freeze(NODES);
 	}
 	
 	function toggleTrashIcon(txtTarget) {

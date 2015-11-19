@@ -28,8 +28,7 @@ define(['appController'], function (Controller) {
 	
 	app.addEventListener('input', function (evt) {
 		evt.stopPropagation();
-		console.time('l0');
+		
 		Controller.getEvent(evt);
-		console.timeEnd('l0');
 	}, false);
 });
