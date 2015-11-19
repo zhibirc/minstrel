@@ -6,7 +6,8 @@ requirejs.config({
 		appController: 'Controllers/AppController',
 		appModel: 'Models/Database',
 		typography: 'Controllers/modules/typography',
-		uglifyjs: 'Controllers/modules/uglifyjs'
+		uglifyjs: 'Controllers/modules/uglifyjs',
+		search: 'Controllers/modules/search'
 	},
 	shim: {
 		uglifyjs: { exports: 'UglifyJS' }
