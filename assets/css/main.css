@@ -193,6 +193,7 @@ footer div {
 	background: #C0C0C0;
 	border: 2px solid #fff;
 	box-sizing: border-box;
+	font-size: 1.2rem;
 	left: 50%;
 	margin-left: -250px;
 	padding: 20px;
@@ -202,7 +203,7 @@ footer div {
 	z-index: 1001;
 }
 
-#pp_info h5, #pp_info .pp-info-btn {
+#pp_info h5, .pp-info-btn {
 	text-align: center;
 }
 
@@ -214,6 +215,18 @@ footer div {
 }
 
 #pp_info .license {
-	height: 200px;
+	border: 1px solid #fff;
+	box-sizing: border-box;
+	height: 150px;
+	margin-bottom: 2.5rem;
 	overflow-y: scroll;
+	padding: 5px;
+}
+
+#pp_info a {
+	color: #2F4F4F;
+}
+
+#pp_info a:hover {
+	color: #222;
 }

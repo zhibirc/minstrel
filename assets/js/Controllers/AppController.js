@@ -65,8 +65,7 @@ define(['typography', 'uglifyjs', 'search'], function (typography, UglifyJS, sea
 			dst.focus();
 			break;
 		case 'btn_info':
-			NODES.overlay.classList.remove('__hidden');
-			NODES.popup.classList.remove('__hidden');
+			NODES.popup.className = NODES.overlay.className = '';
 			break;
 		case 'search_input':
 		case 'btn_search':
@@ -77,6 +76,9 @@ define(['typography', 'uglifyjs', 'search'], function (typography, UglifyJS, sea
 			}
 			
 			search.getRequest(data);
+			break;
+		case 'pp_info_close':
+			NODES.overlay.className = NODES.popup.className = '__hidden';
 			break;
 		}
 	}

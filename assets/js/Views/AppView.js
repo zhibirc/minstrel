@@ -5,7 +5,8 @@ define(['appController'], function (Controller) {
 		app = doc.getElementById('app_cnt'),
 		navBar = doc.getElementById('main_toolbar'),
 		searchBox = doc.getElementById('search_input'),
-		searchBtn = doc.getElementById('btn_search');
+		searchBtn = doc.getElementById('btn_search'),
+		popupCloseBtn = doc.getElementById('pp_info_close');
 	
 	Controller.getNodes({
 		src: doc.getElementById('src_input'),
@@ -42,6 +43,12 @@ define(['appController'], function (Controller) {
 	}, false);
 	
 	searchBtn.addEventListener('click', function (evt) {
+		evt.stopPropagation();
+		
+		Controller.getEvent(evt);
+	}, false);
+	
+	popupCloseBtn.addEventListener('click', function (evt) {
 		evt.stopPropagation();
 		
 		Controller.getEvent(evt);
