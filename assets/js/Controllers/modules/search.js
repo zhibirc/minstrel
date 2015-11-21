@@ -2,24 +2,15 @@ define(function () {
 	'use strict';
 	
 	function getRequest(data) {
-		var xhr =  new ('onload' in new XMLHttpRequest()) XMLHttpRequest : XDomainRequest,
-			baseUrl = 'https://www.google.com.ua/search?q=',
-			tailUrl = '&tbm=isch';
+		var xhr =  new ('onload' in new XMLHttpRequest() ? XMLHttpRequest : XDomainRequest),
+			baseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=';
 		
-		xhr.open('GET', baseUrl + encodeURIComponent(data) + tailUrl, true);
+		xhr.open('GET', baseUrl + encodeURIComponent(data), true);
 		
 		xhr.send();
 		
-		xhr.onreadystatechange = function () {
-			if (xhr.readyState !== 4) {
-				return;
-			}
-			
-			if (xhr.status !== 200) {
-				console.log(xhr.status, ': ', xhr.statusText);
-			} else {
-				console.log(xhr.responseText);
-			}
+		xhr.onload = function () {
+			console.log(xhr.responseText);
 		};
 	}
 	
