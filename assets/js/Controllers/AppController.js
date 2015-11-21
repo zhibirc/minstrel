@@ -48,9 +48,6 @@ define(['typography', 'uglifyjs', 'search'], function (typography, UglifyJS, sea
 		case 'btn_speller':
 			speller.check([src]);
 			break;
-		case 'btn_speller_settings':
-			speller.optionsDialog();
-			break;
 		case 'src_input':
 			toggleTrashIcon('src');
 			break;

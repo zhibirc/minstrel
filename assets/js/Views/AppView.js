@@ -13,8 +13,8 @@ define(['appController'], function (Controller) {
 		srcTrash: doc.getElementById('src_trash'),
 		dstTrash: doc.getElementById('dst_trash'),
 		searchBox: searchBox,
-		overlay: doc.querySelector('.pp-overlay'),
-		popup: doc.querySelector('.pp-info')
+		overlay: doc.getElementById('pp_overlay'),
+		popup: doc.getElementById('pp_info')
 	});
 	
 	app.addEventListener('click', function (evt) {

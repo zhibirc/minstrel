@@ -179,7 +179,7 @@ footer div {
 \* ----------------- */
 
 
-.pp-overlay {
+#pp_overlay {
 	background: rgba(0, 0, 0, .6);
 	height: 100%;
 	left: 0;
@@ -189,7 +189,7 @@ footer div {
 	z-index: 1000;
 }
 
-.pp-info {
+#pp_info {
 	background: #C0C0C0;
 	border: 2px solid #fff;
 	box-sizing: border-box;
@@ -200,4 +200,20 @@ footer div {
 	position: fixed;
 	top: 120px;
 	z-index: 1001;
+}
+
+#pp_info h5, #pp_info .pp-info-btn {
+	text-align: center;
+}
+
+#pp_info_close {
+	background: #2F4F4F;
+	border: 0 none;
+	border-radius: 0;
+	color: #87DD95;
+}
+
+#pp_info .license {
+	height: 200px;
+	overflow-y: scroll;
 }

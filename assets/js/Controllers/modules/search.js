@@ -2,7 +2,7 @@ define(function () {
 	'use strict';
 	
 	function getRequest(data) {
-		var xhr =  new XMLHttpRequest(),
+		var xhr =  new ('onload' in new XMLHttpRequest()) XMLHttpRequest : XDomainRequest,
 			baseUrl = 'https://www.google.com.ua/search?q=',
 			tailUrl = '&tbm=isch';
 		
