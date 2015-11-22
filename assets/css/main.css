@@ -10,13 +10,8 @@ html, body {
 	overflow: hidden;
 }
 
-.__no-select {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.__hidden {
+	display: none;
 }
 
 
@@ -32,12 +27,14 @@ html, body {
 
 nav {
     background: #2F4F4F;
+	box-sizing: border-box;
 	color: #87DD95;
 	font-size: 4rem;
     font-weight: 400;
 	line-height: 80px;
-    min-height: 80px;
-	text-align: center;
+    height: 80px;
+	padding-left: 1rem;
+	position: relative;
     width: 100%;
 }
 
@@ -46,9 +43,13 @@ nav i:hover {
 	cursor: default;
 }
 
-#sidebar_switcher {
-
+#btn_info {
+	line-height: inherit !important;
+	position: absolute;
+	right: 1rem;
 }
+
+
 
 
 
@@ -60,7 +61,7 @@ nav i:hover {
 
 
 .app-cnt {
-	height: calc(100% - 120px);
+	height: calc(100% - 130px);
 }
 
 
@@ -90,7 +91,16 @@ section {
 }
 
 section i {
+	color: #808080;
+	font-size: 2rem !important;
 	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+section i:hover, #btn_search:hover {
+	color: #222;
+	cursor: pointer;
 }
 
 
@@ -109,7 +119,8 @@ textarea {
 	border: 0;
 	border-radius: 0;
 	height: 100%;
-	resize: none;
+	padding-right: 15px;
+	resize: none !important;
 	width: 100%;
 }
 
@@ -130,16 +141,93 @@ textarea:focus {
 
 footer {
 	background: #2F4F4F;
-	color: #87DD95;
-	font-size: .8rem;
-	font-weight: 400;
-	height: 40px;
-	line-height: 40px;
+	height: 50px;
+	line-height: 50px;
 	text-align: center;
 	width: 100%;
 }
 
-footer a {
+footer div {
+	display: inline-block;
+	position: relative;
+	width: 50%;
+}
+
+#search_input {
+	background: #F3EFE4;
+	border: 0 none;
+	border-radius: 0;
+	padding-right: 45px;
+	width: 100%;
+}
+
+#btn_search {
+	color: #808080;
+	font-size: 3rem !important;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+}
+
+
+
+
+
+/* ----------------- *\
+
+		POPUP
+		
+\* ----------------- */
+
+
+#pp_overlay {
+	background: rgba(0, 0, 0, .6);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+#pp_info {
+	background: #C0C0C0;
+	border: 2px solid #fff;
+	box-sizing: border-box;
+	font-size: 1.2rem;
+	left: 50%;
+	margin-left: -250px;
+	padding: 20px;
+	width: 500px;
+	position: fixed;
+	top: 120px;
+	z-index: 1001;
+}
+
+#pp_info h5, .pp-info-btn {
+	text-align: center;
+}
+
+#pp_info_close {
+	background: #2F4F4F;
+	border: 0 none;
+	border-radius: 0;
 	color: #87DD95;
-	text-decoration: none;
+}
+
+#pp_info .license {
+	border: 1px solid #fff;
+	box-sizing: border-box;
+	height: 150px;
+	margin-bottom: 2.5rem;
+	overflow-y: scroll;
+	padding: 5px;
+}
+
+#pp_info a {
+	color: #2F4F4F;
+}
+
+#pp_info a:hover {
+	color: #222;
 }

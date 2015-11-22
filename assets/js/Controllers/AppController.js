@@ -1,23 +1,35 @@
-define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
+define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, UglifyJS, search, Speller) {
 	'use strict';
 	
-	var doc = document,
-		src = doc.getElementById('src_input'),
-		dst = doc.getElementById('dst_output'),
-		ast, compressor;
+	var NODES;
+	var ast, compressor;
 	
-	var speller = new Speller({ url: 'speller', lang: 'ru', options: Speller.IGNORE_URLS });
+	var speller = new Speller({ url: '.', lang: 'ru', options: Speller.IGNORE_URLS });
 	
-	function spellCheck() {
-		speller.check([src]);
+	function getNodes(map) {
+		NODES = map;
+		Object.freeze(NODES);
+	}
+	
+	function toggleTrashIcon(txtTarget) {
+		var srcTrash = NODES.srcTrash,
+			dstTrash = NODES.dstTrash;
+			
+		txtTarget === 'src' ? (NODES.src.value ? srcTrash.classList.remove('__hidden') : srcTrash.classList.add('__hidden'))
+							: (NODES.dst.value ? dstTrash.classList.remove('__hidden') : dstTrash.classList.add('__hidden'));
+		
 	}
 	
 	function getEvent(evt) {
-		var target = evt.target;
+		var target = evt.target,
+			src = NODES.src,
+			dst = NODES.dst,
+			data;
 		
 		switch (target.id) {
 		case 'btn_typography':
 			dst.value = typography.fixText(src.value);
+			toggleTrashIcon('dst');
 			break;
 		case 'btn_uglifyjs':
 			ast = UglifyJS.parse(src.value);
@@ -31,12 +43,42 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 			ast.mangle_names();
 			
 			dst.value = ast.print_to_string();
+			toggleTrashIcon('dst');
 			break;
 		case 'btn_speller':
-			spellCheck();
+			speller.check([src]);
 			break;
-		case 'btn_speller_settings':
-			speller.optionsDialog();
+		case 'src_input':
+			toggleTrashIcon('src');
+			break;
+		case 'dst_output':
+			toggleTrashIcon('dst');
+			break;
+		case 'src_trash':
+			src.value = '';
+			toggleTrashIcon('src');
+			src.focus();
+			break;
+		case 'dst_trash':
+			dst.value = '';
+			toggleTrashIcon('dst');
+			dst.focus();
+			break;
+		case 'btn_info':
+			NODES.popup.className = NODES.overlay.className = '';
+			break;
+		case 'search_input':
+		case 'btn_search':
+			data = NODES.searchBox.value;
+			
+			if (!data || evt.type === 'keydown' && evt.keyCode !== 13) {
+				return;
+			}
+			
+			search.getRequest(data);
+			break;
+		case 'pp_info_close':
+			NODES.overlay.className = NODES.popup.className = '__hidden';
 			break;
 		}
 	}
@@ -45,6 +87,7 @@ define(['typography', 'uglifyjs'], function (typography, UglifyJS) {
 	 *	@exports
 	 */
 	 return {
+		 getNodes: getNodes,
 		 getEvent: getEvent
 	 };
 });

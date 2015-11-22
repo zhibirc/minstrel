@@ -6,10 +6,13 @@ requirejs.config({
 		appController: 'Controllers/AppController',
 		appModel: 'Models/Database',
 		typography: 'Controllers/modules/typography',
-		uglifyjs: 'Controllers/modules/uglifyjs'
+		uglifyjs: 'Controllers/modules/uglifyjs',
+		//search: 'Controllers/modules/search',
+		speller: 'Controllers/modules/spell'
 	},
 	shim: {
-		uglifyjs: { exports: 'UglifyJS' }
+		uglifyjs: { exports: 'UglifyJS' },
+		speller: { exports: 'Speller' }
 	}
 });
 
