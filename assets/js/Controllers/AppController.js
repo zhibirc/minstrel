@@ -1,10 +1,10 @@
-define(['typography', 'uglifyjs', 'search'], function (typography, UglifyJS, search) {
+define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, UglifyJS, search, Speller) {
 	'use strict';
 	
 	var NODES;
 	var ast, compressor;
 	
-	var speller = new Speller({ url: 'speller', lang: 'ru', options: Speller.IGNORE_URLS });
+	var speller = new Speller({ url: '.', lang: 'ru', options: Speller.IGNORE_URLS });
 	
 	function getNodes(map) {
 		NODES = map;
