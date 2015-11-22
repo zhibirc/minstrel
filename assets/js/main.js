@@ -7,8 +7,8 @@ requirejs.config({
 		appModel: 'Models/Database',
 		typography: 'Controllers/modules/typography',
 		uglifyjs: 'Controllers/modules/uglifyjs',
-		search: 'Controllers/modules/search',
-		speller: 'Controller/modules/spell'
+		//search: 'Controllers/modules/search',
+		speller: 'Controllers/modules/spell'
 	},
 	shim: {
 		uglifyjs: { exports: 'UglifyJS' },

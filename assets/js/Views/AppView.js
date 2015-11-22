@@ -39,13 +39,13 @@ define(['appController'], function (Controller) {
 	searchBox.addEventListener('keydown', function (evt) {
 		evt.stopPropagation();
 		
-		Controller.getEvent(evt);
+		//Controller.getEvent(evt);
 	}, false);
 	
 	searchBtn.addEventListener('click', function (evt) {
 		evt.stopPropagation();
 		
-		Controller.getEvent(evt);
+		//Controller.getEvent(evt);
 	}, false);
 	
 	popupCloseBtn.addEventListener('click', function (evt) {
