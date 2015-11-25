@@ -1,6 +1,7 @@
 /** CONFIG */
 requirejs.config({
 	baseUrl: 'assets/js',
+	waitSeconds: 0,
 	paths: {
 		appView: 'Views/AppView',
 		appController: 'Controllers/AppController',
