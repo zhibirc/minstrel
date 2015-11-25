@@ -1,6 +1,7 @@
 /** CONFIG */
 requirejs.config({
 	baseUrl: 'assets/js',
+	waitSeconds: 0,
 	paths: {
 		appView: 'Views/AppView',
 		appController: 'Controllers/AppController',
@@ -8,18 +9,16 @@ requirejs.config({
 		typography: 'Controllers/modules/typography',
 		uglifyjs: 'Controllers/modules/uglifyjs',
 		search: 'Controllers/modules/search',
-		speller: 'Controllers/modules/spell',
-		cse: 'Controllers/modules/cse'
+		speller: 'Controllers/modules/spell'
 	},
 	shim: {
 		uglifyjs: { exports: 'UglifyJS' },
-		speller: { exports: 'Speller' },
-		cse: { exports: '__gcse' }
+		speller: { exports: 'Speller' }
 	}
 });
 
 /** INITIAL */
-require(['appView', 'appController', 'appModel', 'cse'], function (View, Controller, databaseAPI, __gcse) {
+require(['appView', 'appController', 'appModel'], function (View, Controller, databaseAPI) {
 	'use strict';
 	
 	var db = new databaseAPI;
