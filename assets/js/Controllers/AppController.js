@@ -67,15 +67,14 @@ define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, Ug
 		case 'btn_info':
 			NODES.popup.className = NODES.overlay.className = '';
 			break;
-		case 'search_input':
 		case 'btn_search':
-			data = NODES.searchBox.value;
+			data = src.value;
 			
-			if (!data || evt.type === 'keydown' && evt.keyCode !== 13) {
+			if (!data.trim()) {
 				return;
 			}
 			
-			search.getRequest(data);
+			search.getRequest(data, NODES.searchBox);
 			break;
 		case 'pp_info_close':
 			NODES.overlay.className = NODES.popup.className = '__hidden';

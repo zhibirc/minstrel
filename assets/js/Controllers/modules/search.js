@@ -1,11 +1,17 @@
 define(function () {
 	'use strict';
 	
-	function getRequest(data) {
-		var xhr =  new ('onload' in new XMLHttpRequest() ? XMLHttpRequest : XDomainRequest),
-			baseUrl = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=';
-			
-		data = encodeURIComponent(data).trim();
+	function getRequest(data, searchBox) {
+		var iframe = searchBox,
+			headUrl = 'http://www.google.com.ua/search?q=',
+			tailUrl = '&source=lnms&tbm=isch';
+		
+		function transformData(data) {
+			return encodeURIComponent(data);
+		}
+		
+		iframe.src = headUrl + transformData(data) + tailUrl;
+		iframe.className = '';
 	}
 	
 	/**

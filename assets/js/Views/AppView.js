@@ -4,8 +4,6 @@ define(['appController'], function (Controller) {
 	var doc = document,
 		app = doc.getElementById('app_cnt'),
 		navBar = doc.getElementById('main_toolbar'),
-		searchBox = doc.getElementById('search_input'),
-		searchBtn = doc.getElementById('btn_search'),
 		popupCloseBtn = doc.getElementById('pp_info_close');
 	
 	Controller.getNodes({
@@ -13,9 +11,9 @@ define(['appController'], function (Controller) {
 		dst: doc.getElementById('dst_output'),
 		srcTrash: doc.getElementById('src_trash'),
 		dstTrash: doc.getElementById('dst_trash'),
-		searchBox: searchBox,
 		overlay: doc.getElementById('pp_overlay'),
-		popup: doc.getElementById('pp_info')
+		popup: doc.getElementById('pp_info'),
+		searchBox: doc.getElementById('search_box') 
 	});
 	
 	app.addEventListener('click', function (evt) {
@@ -34,18 +32,6 @@ define(['appController'], function (Controller) {
 		evt.stopPropagation();
 		
 		Controller.getEvent(evt);
-	}, false);
-	
-	searchBox.addEventListener('keydown', function (evt) {
-		evt.stopPropagation();
-		
-		//Controller.getEvent(evt);
-	}, false);
-	
-	searchBtn.addEventListener('click', function (evt) {
-		evt.stopPropagation();
-		
-		//Controller.getEvent(evt);
 	}, false);
 	
 	popupCloseBtn.addEventListener('click', function (evt) {
