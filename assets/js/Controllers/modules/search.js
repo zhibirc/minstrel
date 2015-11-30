@@ -1,17 +1,21 @@
 define(function () {
 	'use strict';
 	
-	function getRequest(data, searchBox) {
-		var iframe = searchBox,
-			headUrl = 'http://www.google.com.ua/search?q=',
-			tailUrl = '&source=lnms&tbm=isch';
+	function getRequest(data) {
+		var headUrl = 'http://nigma.ru/?s=',
+			tailUrl = '&t=img',
+			resultBox,
+			url;
 		
 		function transformData(data) {
 			return encodeURIComponent(data);
 		}
 		
-		iframe.src = headUrl + transformData(data) + tailUrl;
-		iframe.className = '';
+		url = headUrl + transformData(data) + tailUrl;
+		
+		resultBox = window.open(url, "nigmaSerachWindow", "width=750,height=650,top=30,location=1,status=1,scrollbars=1");
+        
+		resultBox.focus();
 	}
 	
 	/**
