@@ -1,17 +1,26 @@
 define(function () {
 	'use strict';
 	
-	function getRequest(data, searchBox) {
-		var iframe = searchBox,
-			headUrl = 'http://www.google.com.ua/search?q=',
-			tailUrl = '&source=lnms&tbm=isch';
+	// TODO --> Separate logic into several pieces: getting user input, building request to server, result box for search results,
+	// parse user input to detect keywords and data structure for request.
+	function getRequest(data) {
+		var headUrl = 'http://nigma.ru/?s=',
+			tailUrl = '&t=img',
+			resultBoxWidth = window.innerWidth / 2,
+			resultBoxHeight = window.innerHeight,
+			resultBox,
+			fullUrl;
 		
 		function transformData(data) {
 			return encodeURIComponent(data);
 		}
 		
-		iframe.src = headUrl + transformData(data) + tailUrl;
-		iframe.className = '';
+		fullUrl = headUrl + transformData(data) + tailUrl;
+		
+		resultBox = window.open(fullUrl, 'resultBox', 'width=' + resultBoxWidth + ',height=' + resultBoxHeight +
+					',top=0,left=' + resultBoxWidth + 'location=1,status=0,scrollbars=1');
+        
+		resultBox.focus();
 	}
 	
 	/**
