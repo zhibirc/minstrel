@@ -1,19 +1,24 @@
 define(function () {
 	'use strict';
 	
+	// TODO --> Separate logic into several pieces: getting user input, building request to server, result box for search results,
+	// parse user input to detect keywords and data structure for request.
 	function getRequest(data) {
 		var headUrl = 'http://nigma.ru/?s=',
 			tailUrl = '&t=img',
+			resultBoxWidth = window.innerWidth / 2,
+			resultBoxHeight = window.innerHeight,
 			resultBox,
-			url;
+			fullUrl;
 		
 		function transformData(data) {
 			return encodeURIComponent(data);
 		}
 		
-		url = headUrl + transformData(data) + tailUrl;
+		fullUrl = headUrl + transformData(data) + tailUrl;
 		
-		resultBox = window.open(url, "nigmaSerachWindow", "width=750,height=650,top=30,location=1,status=1,scrollbars=1");
+		resultBox = window.open(fullUrl, 'resultBox', 'width=' + resultBoxWidth + ',height=' + resultBoxHeight +
+					',top=0,left=' + resultBoxWidth + 'location=1,status=0,scrollbars=1');
         
 		resultBox.focus();
 	}
