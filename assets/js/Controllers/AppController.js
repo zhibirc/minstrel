@@ -1,4 +1,4 @@
-define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, UglifyJS, search, Speller) {
+define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, UglifyJS, search, Speller/*, controls */) {
 	'use strict';
 	
 	var NODES;

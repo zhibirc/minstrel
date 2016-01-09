@@ -11,8 +11,7 @@ define(function () {
 			fixMore3Marks: [/[!?]{4,}/g, s => s.slice(0, 3)], // replace three or more question or exclamation marks with three ones
 			fixHyphenDash0: [/\s-(\s)/g, '\u00A0\u2014$1'], // replace hyphen with a dash with non-breaking space before
 			fixHyphenDash1: [/^-(\s)/gm, '\u2014$1'], // replace hyphen with a dash at the beginning of each line
-			fixLeftQuotes: [/(^|\s)"/g, (s, $1) => $1 + (is_eng ? '“' : '«')], // replace left-side double quotes
-			fixRightQuotes: [/"(\s|[-.,:;?!]|$)/g, (s, $1) => (is_eng ? '”' : '»') + $1], // replace right-side double quotes
+			fixInchMark: [/((?:^|\s)\d+(?:[.,]\d+)?)"/g, '$1\u2033'], // replace machine double quotes with inch/second marks
 			fixWhspsAfterMarks0: [/([,:;])(?=[^ ])/gi, '$1 '], // adding single whitespace after comma, colon and semicolon
 			fixThinWhsps: [/( [a-zа-яё]\.)\s?([a-zа-яё]\.)/gi, (s, $1, $2) => $1 + '\u2009' + $2], // adding a thin whitespaces in initials and reductions
 			fixWhspsBeforeSentences: [/(\.)(?=[a-zа-яё][^.])/gi, '$1 '], // adding whitespace before each sentence in the given text
@@ -25,13 +24,18 @@ define(function () {
 	
 	Object.freeze(TYPO_PATTERNS);
 	
-	var propVal;
-	
 	function fixText(txt) {
+		var re = /"((?:[^\s"][^"]*[^\s"])?)"/,
+			replacer;
+		
 		Object.keys(TYPO_PATTERNS).forEach(function (key) {
-			propVal = TYPO_PATTERNS[key];
-			txt = txt.replace(propVal[0], propVal[1]);
+			replacer = TYPO_PATTERNS[key];
+			txt = txt.replace(replacer[0], replacer[1]);
 		});
+		
+		while (re.test(txt)) {
+			txt = txt.replace(re, '«$1»');
+		}
 		
 		return txt;
 	}
