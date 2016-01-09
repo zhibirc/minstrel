@@ -16,9 +16,10 @@ define(function () {
 		}
 		
 		fullUrl = headUrl + transformData(data) + tailUrl;
+	
 		
 		resultBox = window.open(fullUrl, 'resultBox', 'width=' + resultBoxWidth + ',height=' + resultBoxHeight +
-					',top=0,left=' + resultBoxWidth + 'location=1,status=0,scrollbars=1');
+					',top=0,left=' + resultBoxWidth + 'location=0,status=0,scrollbars=1');
         
 		resultBox.focus();
 	}
