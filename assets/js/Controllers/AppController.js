@@ -21,7 +21,7 @@ define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, Ug
 	}
 	
 	function getEvent(evt) {
-		var target = evt.target,
+		var target = evt.currentTarget.id === 'main_toolbar' ? evt.target.parentNode : evt.target,
 			src = NODES.src,
 			dst = NODES.dst,
 			data;
