@@ -26,6 +26,8 @@ define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, Ug
 			dst = NODES.dst,
 			data;
 		
+		target.tagName === 'BODY' && evt.keyCode === 27 && (target.id = 'escape_popup');
+		
 		switch (target.id) {
 		case 'btn_typography':
 			dst.value = typography.fixText(src.value);
@@ -77,7 +79,11 @@ define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, Ug
 			search.getRequest(data, NODES.searchBox);
 			break;
 		case 'pp_info_close':
+		case 'pp_overlay':
+		case 'escape_popup':
+		console.log('here');
 			NODES.overlay.className = NODES.popup.className = '__hidden';
+			target.id === 'escape_popup' && (target.id = '');
 			break;
 		}
 	}

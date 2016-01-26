@@ -20,7 +20,13 @@ define(['appController'], function (Controller) {
 		searchBox: fetch('search_box') 
 	});
 	
-	app.addEventListener('click', function (evt) {
+	doc.addEventListener('click', function (evt) {
+		evt.stopPropagation();
+		
+		Controller.getEvent(evt);
+	}, false);
+			
+	window.addEventListener('keydown', function (evt) {
 		evt.stopPropagation();
 		
 		Controller.getEvent(evt);
@@ -33,12 +39,6 @@ define(['appController'], function (Controller) {
 	}, false);
 	
 	navBar.addEventListener('click', function (evt) {
-		evt.stopPropagation();
-		
-		Controller.getEvent(evt);
-	}, false);
-	
-	popupCloseBtn.addEventListener('click', function (evt) {
 		evt.stopPropagation();
 		
 		Controller.getEvent(evt);
