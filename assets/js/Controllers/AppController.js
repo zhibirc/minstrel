@@ -81,7 +81,6 @@ define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, Ug
 		case 'pp_info_close':
 		case 'pp_overlay':
 		case 'escape_popup':
-		console.log('here');
 			NODES.overlay.className = NODES.popup.className = '__hidden';
 			target.id === 'escape_popup' && (target.id = '');
 			break;
