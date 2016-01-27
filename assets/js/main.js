@@ -6,14 +6,16 @@ requirejs.config({
 		appView: 'Views/AppView',
 		appController: 'Controllers/AppController',
 		appModel: 'Models/Database',
-		typography: 'Controllers/modules/typography',
-		uglifyjs: 'Controllers/modules/uglifyjs',
+		clipboard: 'Controllers/modules/clipboard',
 		search: 'Controllers/modules/search',
-		speller: 'Controllers/modules/spell'
+		speller: 'Controllers/modules/spell',
+		typography: 'Controllers/modules/typography',
+		uglifyjs: 'Controllers/modules/uglifyjs'
 	},
 	shim: {
 		uglifyjs: { exports: 'UglifyJS' },
-		speller: { exports: 'Speller' }
+		speller: { exports: 'Speller' },
+		clipboard: { exports: 'Clipboard' }
 	}
 });
 

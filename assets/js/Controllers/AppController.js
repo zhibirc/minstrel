@@ -1,10 +1,12 @@
-define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, UglifyJS, search, Speller/*, controls */) {
+define(['typography', 'uglifyjs', 'search', 'speller', 'clipboard'], function (typography, UglifyJS, search, Speller, Clipboard/*, controls */) {
 	'use strict';
 	
 	var NODES;
 	var ast, compressor;
 	
 	var speller = new Speller({ url: '.', lang: 'ru', options: Speller.IGNORE_URLS });
+	
+	var clipboard = new Clipboard('.fa-files-o');
 	
 	function getNodes(map) {
 		NODES = map;
@@ -13,10 +15,19 @@ define(['typography', 'uglifyjs', 'search', 'speller'], function (typography, Ug
 	
 	function toggleTrashIcon(txtTarget) {
 		var srcTrash = NODES.srcTrash,
-			dstTrash = NODES.dstTrash;
+			dstTrash = NODES.dstTrash,
+			srcCopy = NODES.srcCopy,
+			dstCopy = NODES.dstCopy;
 			
-		txtTarget === 'src' ? (NODES.src.value ? srcTrash.classList.remove('__hidden') : srcTrash.classList.add('__hidden'))
-							: (NODES.dst.value ? dstTrash.classList.remove('__hidden') : dstTrash.classList.add('__hidden'));
+		if (txtTarget === 'src') {
+			NODES.src.value
+				? [srcTrash, srcCopy].forEach(v => v.classList.remove('__shadowed'))
+				: [srcTrash, srcCopy].forEach(v => v.classList.add('__shadowed'));
+		} else {
+			NODES.dst.value
+				? [dstTrash, dstCopy].forEach(v => v.classList.remove('__shadowed'))
+				: [dstTrash, dstCopy].forEach(v => v.classList.add('__shadowed'));
+		}
 		
 	}
 	

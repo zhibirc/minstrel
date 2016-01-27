@@ -15,6 +15,8 @@ define(['appController'], function (Controller) {
 		dst: fetch('dst_output'),
 		srcTrash: fetch('src_trash'),
 		dstTrash: fetch('dst_trash'),
+		srcCopy: fetch('src_copy'),
+		dstCopy: fetch('dst_copy'),
 		overlay: fetch('pp_overlay'),
 		popup: fetch('pp_info'),
 		searchBox: fetch('search_box') 

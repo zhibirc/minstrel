@@ -41,9 +41,15 @@
 </div>
 
 <footer>
-	<div class="controls">
-		<i class="fa fa-times __hidden" id="src_trash" title="Очистить"></i>
-		<i class="fa fa-times __hidden" id="dst_trash" title="Очистить"></i>
+	<div class="controls u-full-width">
+		<div class="u-pull-left">
+			<i class="fa fa-files-o __shadowed" id="src_copy" data-clipboard-target="#src_input" title="Копировать"></i>
+			<i class="fa fa-trash __shadowed" id="src_trash" title="Очистить"></i>
+		</div>
+		<div class="u-pull-right">
+			<i class="fa fa-files-o __shadowed" id="dst_copy" data-clipboard-target="#dst_output" title="Копировать"></i>
+			<i class="fa fa-trash __shadowed" id="dst_trash" title="Очистить"></i>
+		</div>
 	</div>
 </footer>
 

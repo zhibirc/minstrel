@@ -14,6 +14,10 @@ html, body {
 	display: none;
 }
 
+.__shadowed {
+	opacity: .4;
+	pointer-events: none;
+}
 
 
 
@@ -136,23 +140,23 @@ footer {
 	background: #2F4F4F;
 	height: 40px;
 	line-height: 40px;
-	text-align: center;
 	width: 100%;
 }
 
-.controls {
-	margin: 0 auto;
-	width: 50%;
-}
-
 .controls i {
-	color: #808080;
+	color: #87DD95;
 	font-size: 2rem !important;
+	margin-right: 20px;
 }
 
 .controls i:hover {
-	color: #222;
-	cursor: pointer;
+	color: #82C88D;
+	cursor: default;
+}
+
+.controls div {
+	text-align: center;
+	width: 50%;
 }
 
 
