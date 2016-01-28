@@ -1,0 +1,22 @@
+{
+  "name": "zedit",
+  "version": "1.0.0",
+  "description": "Web Editor for Poets",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhibirc/zEdit.git"
+  },
+  "author": "Yaroslav Surilov (zhibirc)",
+  "license": "JSON",
+  "bugs": {
+    "url": "https://github.com/zhibirc/zEdit/issues"
+  },
+  "homepage": "https://github.com/zhibirc/zEdit#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
