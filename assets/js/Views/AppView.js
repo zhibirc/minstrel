@@ -2,13 +2,10 @@ define(['appController'], function (Controller) {
 	'use strict';
 	
 	var doc = document,
+		fetch = doc.getElementById.bind(doc),
 		app = fetch('app_cnt'),
 		navBar = fetch('main_toolbar'),
 		popupCloseBtn = fetch('pp_info_close');
-	
-	function fetch(id) {
-        return doc.getElementById(id);
-    }
 	
 	Controller.getNodes({
 		src: fetch('src_input'),
