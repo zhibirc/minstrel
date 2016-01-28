@@ -1,27 +1,33 @@
 define(function () {
 	'use strict';
-	
-	// TODO --> Separate logic into several pieces: getting user input, building request to server, result box for search results,
-	// parse user input to detect keywords and data structure for request.
-	function getRequest(data) {
-		var headUrl = 'http://nigma.ru/?s=',
-			tailUrl = '&t=img',
-			resultBoxWidth = window.innerWidth / 2,
+
+	// Implement logic to get and store selectedWSE (selected Web Search Engine).
+	function getRequest(data, selectedWSE) {
+		var resultBoxWidth = window.innerWidth / 2,
 			resultBoxHeight = window.innerHeight,
-			resultBox,
-			fullUrl;
+			resultBox;
 		
-		function transformData(data) {
-			return encodeURIComponent(data);
-		}
-		
-		fullUrl = headUrl + transformData(data) + tailUrl;
-	
-		
-		resultBox = window.open(fullUrl, 'resultBox', 'width=' + resultBoxWidth + ',height=' + resultBoxHeight +
+		resultBox = window.open(buildSearchRequest(data, selectedWSE), 'resultBox', 'width=' + resultBoxWidth + ',height=' + resultBoxHeight +
 					',top=0,left=' + resultBoxWidth + 'location=0,status=0,scrollbars=1');
         
 		resultBox.focus();
+	}
+	
+	function buildSearchRequest(data, selectedWSE) {
+		var templates = {
+			google: [],
+			nigma: ['http://nigma.ru/?s=', '&t=img']
+		};
+		
+		return templates[selectedWSE][0] + encodeURIComponent(parseTxt(data)) + templates[selectedWSE][1];
+	}
+	
+	function parseTxt(data) {
+		var re = {
+			header: /^ *([-a-zа-яё\d ]+)( *\n){2}/i, // Match heading of the text.
+		};
+		
+		
 	}
 	
 	/**
