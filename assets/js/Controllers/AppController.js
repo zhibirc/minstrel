@@ -87,7 +87,7 @@ define(['typography', 'uglifyjs', 'search', 'speller', 'clipboard'], function (t
 				return;
 			}
 			
-			search.getRequest(data, NODES.searchBox);
+			search.getRequest(data, 'google');
 			break;
 		case 'pp_info_close':
 		case 'pp_overlay':

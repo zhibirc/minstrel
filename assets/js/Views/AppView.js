@@ -15,8 +15,7 @@ define(['appController'], function (Controller) {
 		srcCopy: fetch('src_copy'),
 		dstCopy: fetch('dst_copy'),
 		overlay: fetch('pp_overlay'),
-		popup: fetch('pp_info'),
-		searchBox: fetch('search_box') 
+		popup: fetch('pp_info')
 	});
 	
 	doc.addEventListener('click', function (evt) {
