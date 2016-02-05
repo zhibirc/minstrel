@@ -2,21 +2,29 @@ define(['appController'], function (Controller) {
 	'use strict';
 	
 	var doc = document,
-		app = doc.getElementById('app_cnt'),
-		navBar = doc.getElementById('main_toolbar'),
-		popupCloseBtn = doc.getElementById('pp_info_close');
+		fetch = doc.getElementById.bind(doc),
+		app = fetch('app_cnt'),
+		navBar = fetch('main_toolbar'),
+		popupCloseBtn = fetch('pp_info_close');
 	
 	Controller.getNodes({
-		src: doc.getElementById('src_input'),
-		dst: doc.getElementById('dst_output'),
-		srcTrash: doc.getElementById('src_trash'),
-		dstTrash: doc.getElementById('dst_trash'),
-		overlay: doc.getElementById('pp_overlay'),
-		popup: doc.getElementById('pp_info'),
-		searchBox: doc.getElementById('search_box') 
+		src: fetch('src_input'),
+		dst: fetch('dst_output'),
+		srcTrash: fetch('src_trash'),
+		dstTrash: fetch('dst_trash'),
+		srcCopy: fetch('src_copy'),
+		dstCopy: fetch('dst_copy'),
+		overlay: fetch('pp_overlay'),
+		popup: fetch('pp_info')
 	});
 	
-	app.addEventListener('click', function (evt) {
+	doc.addEventListener('click', function (evt) {
+		evt.stopPropagation();
+		
+		Controller.getEvent(evt);
+	}, false);
+			
+	window.addEventListener('keydown', function (evt) {
 		evt.stopPropagation();
 		
 		Controller.getEvent(evt);
@@ -29,12 +37,6 @@ define(['appController'], function (Controller) {
 	}, false);
 	
 	navBar.addEventListener('click', function (evt) {
-		evt.stopPropagation();
-		
-		Controller.getEvent(evt);
-	}, false);
-	
-	popupCloseBtn.addEventListener('click', function (evt) {
 		evt.stopPropagation();
 		
 		Controller.getEvent(evt);

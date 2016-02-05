@@ -14,6 +14,10 @@ html, body {
 	display: none;
 }
 
+.__shadowed {
+	opacity: .4;
+	pointer-events: none;
+}
 
 
 
@@ -29,26 +33,33 @@ nav {
     background: #2F4F4F;
 	box-sizing: border-box;
 	color: #87DD95;
-	font-size: 4rem;
     font-weight: 400;
 	height: 80px;
-	line-height: 80px;
 	padding-left: 1rem;
+	overflow: hidden;
 	position: relative;
     width: 100%;
 }
 
-nav i:hover {
+nav i {
+	font-size: 3rem !important;
+}
+
+nav li:hover {
 	color: #82C88D;
 	cursor: default;
 }
 
-#btn_info {
-	line-height: inherit !important;
-	position: absolute;
-	right: 1rem;
+nav li {
+	display: inline-block;
+	height: 80px;
+	padding: 12px 10px;
+	text-align: center;
 }
 
+nav span {
+	font-size: 1.5rem;
+}
 
 
 
@@ -90,19 +101,6 @@ section {
 	float: right;
 }
 
-section i {
-	color: #808080;
-	font-size: 2rem !important;
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-
-section i:hover {
-	color: #222;
-	cursor: pointer;
-}
-
 
 
 
@@ -119,7 +117,6 @@ textarea {
 	border: 0;
 	border-radius: 0;
 	height: 100%;
-	padding-right: 15px;
 	resize: none !important;
 	width: 100%;
 }
@@ -143,8 +140,23 @@ footer {
 	background: #2F4F4F;
 	height: 40px;
 	line-height: 40px;
-	text-align: center;
 	width: 100%;
+}
+
+.controls i {
+	color: #87DD95;
+	font-size: 2rem !important;
+	margin-right: 20px;
+}
+
+.controls i:hover {
+	color: #82C88D;
+	cursor: default;
+}
+
+.controls div {
+	text-align: center;
+	width: 50%;
 }
 
 

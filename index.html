@@ -21,26 +21,37 @@
 </head>
 <body>
 <nav id="main_toolbar">
-	<i class="fa fa-pencil-square-o" id="btn_typography" title="Типографика"></i>
-	<i class="fa fa-font" id="btn_speller" title="Орфография"></i>
-	<i class="fa fa-search" id="btn_search" title="Поиск картинок"></i>
-	<i class="fa fa-code" id="btn_uglifyjs" title="Минификация JS"></i>
-	<i class="fa fa-info-circle u-pull-right" id="btn_info" title="Информация о приложении"></i>
+	<ul>
+		<li id="btn_typography"><i class="fa fa-pencil-square-o" title="Типографика"></i><br><span>Типографика
+		<li id="btn_speller"><i class="fa fa-font" title="Орфография"></i><br><span>Орфография
+		<li id="btn_search"><i class="fa fa-picture-o" title="Поиск картинок"></i><br><span>Поиск картинок
+		<li id="btn_uglifyjs"><i class="fa fa-code" title="Минификация JS"></i><br><span>Минификация JS
+		<li id="btn_info"><i class="fa fa-info-circle" title="Информация о приложении"></i><br><span>Информация о приложении
+	</ul>
 </nav>
 
 <div class="app-cnt u-full-width" id="app_cnt">
 	<section class="src-cnt">
 		<textarea id="src_input" autofocus></textarea>
-		<i class="fa fa-times __hidden" id="src_trash" title="Очистить"></i>
 	</section>
 
 	<section class="dst-cnt">
 		<textarea id="dst_output"></textarea>
-		<i class="fa fa-times __hidden" id="dst_trash" title="Очистить"></i>
 	</section>
 </div>
 
-<footer></footer>
+<footer>
+	<div class="controls u-full-width">
+		<div class="u-pull-left">
+			<i class="fa fa-files-o __shadowed" id="src_copy" data-clipboard-target="#src_input" title="Копировать"></i>
+			<i class="fa fa-trash __shadowed" id="src_trash" title="Очистить"></i>
+		</div>
+		<div class="u-pull-right">
+			<i class="fa fa-files-o __shadowed" id="dst_copy" data-clipboard-target="#dst_output" title="Копировать"></i>
+			<i class="fa fa-trash __shadowed" id="dst_trash" title="Очистить"></i>
+		</div>
+	</div>
+</footer>
 
 <div class="__hidden" id="pp_overlay"></div>
 <div class="__hidden" id="pp_info">
@@ -60,10 +71,6 @@
 		<button id="pp_info_close">Закрыть</button>
 	</div>
 </div>
-
-<iframe src="" id="search_box" class="__hidden"></iframe>
-
-<gcse:search></gcse:search>
 
 <script data-main="assets/js/main" src="assets/js/require.js"></script>
 </body>
