@@ -143,6 +143,10 @@ footer {
 	width: 100%;
 }
 
+.controls {
+	position: relative;
+}
+
 .controls i {
 	color: #87DD95;
 	font-size: 2rem !important;
@@ -157,6 +161,12 @@ footer {
 .controls div {
 	text-align: center;
 	width: 50%;
+}
+
+#set_fullscreen {
+	left: 49.5%;
+	position: absolute;
+	top: 10px;
 }
 
 
