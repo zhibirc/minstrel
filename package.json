@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zhibirc/zEdit#readme",
   "devDependencies": {
+    "font-awesome": "^4.7.0",
     "grunt": "^0.4.5"
   }
 }
