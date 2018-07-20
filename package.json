@@ -1,23 +1,19 @@
 {
-  "name": "zedit",
-  "version": "1.0.0",
-  "description": "Web Editor for Poets",
+  "name": "Minstrel",
+  "version": "0.0.1",
+  "description": "Desktop version of Web Editor for Poetry",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhibirc/zEdit.git"
+    "url": "https://github.com/zhibirc/minstrel.git"
   },
   "author": "Yaroslav Surilov (zhibirc)",
-  "license": "JSON",
-  "bugs": {
-    "url": "https://github.com/zhibirc/zEdit/issues"
-  },
-  "homepage": "https://github.com/zhibirc/zEdit#readme",
+  "license": "MIT",
+  "homepage": "http://zhibirc.github.io/minstrel",
   "devDependencies": {
-    "font-awesome": "^4.7.0",
-    "grunt": "^0.4.5"
+    "font-awesome": "^4.7.0"
   }
 }
